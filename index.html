@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфоліо веб-проектів | Full-Stack розробка</title>
+    <style>
+        :root {
+            --color-primary: #208D8D;
+            --color-primary-hover: #1A7474;
+            --color-bg: #FCFCF9;
+            --color-surface: #FFF;
+            --color-text: #1F2121;
+            --color-text-secondary: #626C7C;
+            --color-border: #E8E8E6;
+            --color-accent-blue: #3B82F6;
+            --color-accent-orange: #E68161;
+            --color-accent-green: #22C55E;
+            --radius: 8px;
+            --spacing: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--color-surface);
+            border-bottom: 1px solid var(--color-border);
+            padding: 24px var(--spacing);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--spacing);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .hero {
+            padding: 48px var(--spacing);
+            text-align: center;
+            background: linear-gradient(135deg, rgba(32, 141, 141, 0.08) 0%, rgba(230, 129, 97, 0.04) 100%);
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--color-text-secondary);
+            margin-bottom: 24px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing);
+            padding: 32px var(--spacing);
+        }
+
+        .stat-card {
+            background: var(--color-surface);
+            padding: 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 32px;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-card p {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+        }
+
+        .content {
+            padding: 0 var(--spacing) 48px;
+        }
+
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: var(--color-text);
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 12px;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .platform-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+        }
+
+        .platform-card:hover {
+            border-color: var(--color-primary);
+            box-shadow: 0 8px 16px rgba(32, 141, 141, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .platform-header {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+            color: white;
+            padding: 16px;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .platform-content {
+            padding: 16px;
+        }
+
+        .platform-description {
+            color: var(--color-text-secondary);
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .projects-table {
+            width: 100%;
+            font-size: 13px;
+            border-collapse: collapse;
+        }
+
+        .projects-table th {
+            background: var(--color-bg);
+            padding: 8px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--color-text);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .projects-table td {
+            padding: 8px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .projects-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .project-link {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: var(--color-primary-hover);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--color-text-secondary);
+        }
+
+        .feature-check {
+            color: var(--color-primary);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 6px 14px;
+            border: 1px solid var(--color-border);
+            background: var(--color-surface);
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.3s;
+            color: var(--color-text-secondary);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .filter-btn.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .competencies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .competency-card {
+            background: var(--color-surface);
+            padding: 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--color-border);
+        }
+
+        .competency-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--color-text);
+        }
+
+        .competency-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: var(--color-bg);
+            padding: 6px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: var(--color-text-secondary);
+            border: 1px solid var(--color-border);
+        }
+
+        .tag.tech {
+            background: rgba(32, 141, 141, 0.08);
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
+            color: white;
+            padding: 48px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            margin-bottom: 24px;
+            opacity: 0.95;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: white;
+            color: var(--color-primary);
+            padding: 12px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer {
+            background: var(--color-surface);
+            border-top: 1px solid var(--color-border);
+            padding: 32px var(--spacing);
+            text-align: center;
+            color: var(--color-text-secondary);
+            font-size: 14px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .footer-link {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: var(--color-primary-hover);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .platform-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">💻 Web Portfolio</div>
+                <ul class="nav-links">
+                    <li><a onclick="scrollTo('platforms')">Платформи</a></li>
+                    <li><a onclick="scrollTo('competencies')">Компетенції</a></li>
+                    <li><a onclick="scrollTo('contact')">Контакти</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Full-Stack Web Development</h1>
+            <p>36 успішно реалізованих проектів від планування до запуску. E-commerce, SaaS, корпоративні сайти, стартапи та інноваційні платформи.</p>
+        </div>
+    </section>
+
+    <section class="stats-grid container">
+        <div class="stat-card">
+            <h3>36+</h3>
+            <p>Завершених проектів</p>
+        </div>
+        <div class="stat-card">
+            <h3>10</h3>
+            <p>Технологічних стеків</p>
+        </div>
+        <div class="stat-card">
+            <h3>5+</h3>
+            <p>Років досвіду</p>
+        </div>
+        <div class="stat-card">
+            <h3>100%</h3>
+            <p>Задоволених клієнтів</p>
+        </div>
+    </section>
+
+    <section class="content" id="platforms">
+        <div class="container">
+            <h2 class="section-title">🛒 E-commerce платформи</h2>
+            
+            <div class="platform-grid">
+                <!-- OpenCart -->
+                <div class="platform-card">
+                    <div class="platform-header">OpenCart (PHP-based)</div>
+                    <div class="platform-content">
+                        <p class="platform-description">Масштабовані e-commerce рішення з повним циклом від планування до реалізації.</p>
+                        <table class="projects-table">
+                            <thead>
+                                <tr>
+                                    <th>Проект</th>
+                                    <th>Тип</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="https://offroad.ua" class="project-link" target="_blank">Offroad</a></td>
+                                    <td>E-commerce</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://dailyopt.com.ua/ua" class="project-link" target="_blank">DailyOpt</a></td>
+                                    <td>E-commerce</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="features">
+                            <div class="feature-item"><span class="feature-check">✓</span> Управління каталогом</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Системи платежів</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Доставка</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Адм. панель</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shopify -->
+                <div class="platform-card">
+                    <div class="platform-header">Shopify (SaaS)</div>
+                    <div class="platform-content">
+                        <p class="platform-description">Масштабовані e-commerce платформи з розширеною функціональністю.</p>
+                        <table class="projects-table">
+                            <thead>
+                                <tr>
+                                    <th>Проект</th>
+                                    <th>Напрямок</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="https://www.westwing.pl" class="project-link" target="_blank">WestWing PL</a></td>
+                                    <td>Декор</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://happyv.com" class="project-link" target="_blank">Happy V</a></td>
+                                    <td>Платформа</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://outin.com" class="project-link" target="_blank">OutIn</a></td>
+                                    <td>Туризм</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.tryauri.com" class="project-link" target="_blank">Try Auri</a></td>
+                                    <td>Бьюті</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://westintrends.com" class="project-link" target="_blank">Westin Trends</a></td>
+                                    <td>Fashion</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="features">
+                            <div class="feature-item"><span class="feature-check">✓</span> Управління товарами</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Платіжні шлюзи</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Автоматизація</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Аналітика</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Хорошоп -->
+                <div class="platform-card">
+                    <div class="platform-header">Хорошоп (UA Platform)</div>
+                    <div class="platform-content">
+                        <p class="platform-description">E-commerce рішення для українського ринку з локальною інтеграцією.</p>
+                        <table class="projects-table">
+                            <thead>
+                                <tr>
+                                    <th>Проект</th>
+                                    <th>Категорія</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="https://mironiks.shop" class="project-link" target="_blank">Mironiks Shop</a></td>
+                                    <td>Магазин</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://gorihokol.com.ua" class="project-link" target="_blank">Gori Hokol</a></td>
+                                    <td>Товари</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://marbleclo.com.ua" class="project-link" target="_blank">Marble Clo</a></td>
+                                    <td>Fashion</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="features">
+                            <div class="feature-item"><span class="feature-check">✓</span> UA платежі</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Локалізація</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Склад</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">🎨 No-code платформи</h2>
+            
+            <div class="platform-grid">
+                <!-- Squarespace -->
+                <div class="platform-card">
+                    <div class="platform-header">Squarespace</div>
+                    <div class="platform-content">
+                        <p class="platform-description">Сучасні сайти з акцентом на дизайн та юзабіліті.</p>
+                        <table class="projects-table">
+                            <thead>
+                                <tr>
+                                    <th>Проект</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><a href="https://oishii.com" class="project-link" target="_blank">Oishii</a></td></tr>
+                                <tr><td><a href="https://www.meiwensee.com" class="project-link" target="_blank">Meiwen See</a></td></tr>
+                                <tr><td><a href="https://www.sanaracollective.com" class="project-link" target="_blank">Sanara Collective</a></td></tr>
+                                <tr><td><a href="https://mikekelley.art" class="project-link" target="_blank">Mike Kelley Art</a></td></tr>
+                                <tr><td><a href="https://needlesandleaves.net" class="project-link" target="_blank">Needles & Leaves</a></td></tr>
+                                <tr><td><a href="https://spokenlayer.com" class="project-link" target="_blank">Spoken Layer</a></td></tr>
+                                <tr><td><a href="https://keynest.com" class="project-link" target="_blank">Keynest</a></td></tr>
+                            </tbody>
+                        </table>
+                        <div class="features">
+                            <div class="feature-item"><span class="feature-check">✓</span> Вбудований дизайн</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> SEO</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Мобіль</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Framer -->
+                <div class="platform-card">
+                    <div class="platform-header">Framer (Interactive)</div>
+                    <div class="platform-content">
+                        <p class="platform-description">Інтерактивні веб-сайти з сучасним дизайном та анімаціями.</p>
+                        <table class="projects-table">
+                            <thead>
+                                <tr>
+                                    <th>Проект</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><a href="https://bird.com" class="project-link" target="_blank">Bird</a></td></tr>
+                                <tr><td><a href="https://useportal.net" class="project-link" target="_blank">UsePortal</a></td></tr>
+                                <tr><td><a href="https://yunastories.com" class="project-link" target="_blank">Yuna Stories</a></td></tr>
+                                <tr><td><a href="https://novawallet.io" class="project-link" target="_blank">Nova Wallet</a></td></tr>
+                                <tr><td><a href="https://flighty.com" class="project-link" target="_blank">Flighty</a></td></tr>
+                                <tr><td><a href="https://multi.app" class="project-link" target="_blank">Multi.app</a></td></tr>
+                                <tr><td><a href="https://www.packaly.com" class="project-link" target="_blank">Packaly</a></td></tr>
+                            </tbody>
+                        </table>
+                        <div class="features">
+                            <div class="feature-item"><span class="feature-check">✓</span> Анімації</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Інтерактив</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Прототип</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Webflow -->
+                <div class="platform-card">
+                    <div class="platform-header">Webflow (CMS/Low-code)</div>
+                    <div class="platform-content">
+                        <p class="platform-description">Професійні платформи з CMS та низько-кодовою функціональністю.</p>
+                        <table class="projects-table">
+                            <thead>
+                                <tr>
+                                    <th>Проект</th>
+                                    <th>Технологія</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><a href="https://www.valthsolutions.com" class="project-link" target="_blank">Valths</a></td><td>Webflow</td></tr>
+                                <tr><td><a href="https://www.curvestudio.no" class="project-link" target="_blank">Curve Studio</a></td><td>Webflow</td></tr>
+                                <tr><td><a href="https://www.reelly.ai" class="project-link" target="_blank">Reelly</a></td><td>Wized</td></tr>
+                                <tr><td><a href="https://soft.reelly.io" class="project-link" target="_blank">Reelly Soft</a></td><td>Wized</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="features">
+                            <div class="feature-item"><span class="feature-check">✓</span> CMS</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Кастом код</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Wized</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Масштаб</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WordPress -->
+                <div class="platform-card">
+                    <div class="platform-header">WordPress</div>
+                    <div class="platform-content">
+                        <p class="platform-description">Динамічні сайти з можливістю розширення та кастомізації.</p>
+                        <table class="projects-table">
+                            <thead>
+                                <tr>
+                                    <th>Проект</th>
+                                    <th>Напрямок</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><a href="https://studio-mcgee.com" class="project-link" target="_blank">Studio McGee</a></td><td>Корпоративний</td></tr>
+                                <tr><td><a href="https://cukr.city" class="project-link" target="_blank">Cukr.City</a></td><td>Комунітар</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="features">
+                            <div class="feature-item"><span class="feature-check">✓</span> CMS</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Плагіни</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Теми</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">⚙️ Кастомні стеки</h2>
+            
+            <div class="platform-grid">
+                <!-- Next.js -->
+                <div class="platform-card">
+                    <div class="platform-header">Next.js (React)</div>
+                    <div class="platform-content">
+                        <p class="platform-description">Сучасні веб-застосунки з максимальною гнучкістю та продуктивністю.</p>
+                        <table class="projects-table">
+                            <thead>
+                                <tr>
+                                    <th>Проект</th>
+                                    <th>Тип</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><a href="https://honnepl.com" class="project-link" target="_blank">Honnepl</a></td><td>E-commerce</td></tr>
+                                <tr><td><a href="https://e-likari.com.ua" class="project-link" target="_blank">E-Likari</a></td><td>Медичний</td></tr>
+                                <tr><td><a href="https://clarionsol.com" class="project-link" target="_blank">Clarion Sol</a></td><td>Landing</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="features">
+                            <div class="feature-item"><span class="feature-check">✓</span> React 18+</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Vercel</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> SEO</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> API</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Full-Stack -->
+                <div class="platform-card">
+                    <div class="platform-header">Django + Next.js</div>
+                    <div class="platform-content">
+                        <p class="platform-description">Складні веб-системи з потужним бекенду та сучасним фронтенду.</p>
+                        <table class="projects-table">
+                            <thead>
+                                <tr>
+                                    <th>Проект</th>
+                                    <th>Функціонал</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><a href="https://tep.ua" class="project-link" target="_blank">TEP</a></td><td>Корпоративна</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="features">
+                            <div class="feature-item"><span class="feature-check">✓</span> Python Django</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> PostgreSQL</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Docker</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> REST API</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Angular -->
+                <div class="platform-card">
+                    <div class="platform-header">Angular</div>
+                    <div class="platform-content">
+                        <p class="platform-description">Великомасштабні веб-застосунки для корпоративних рішень.</p>
+                        <table class="projects-table">
+                            <thead>
+                                <tr>
+                                    <th>Проект</th>
+                                    <th>Тип</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><a href="https://jabko.ua" class="project-link" target="_blank">Jabko</a></td><td>Бізнес</td></tr>
+                                <tr><td><a href="https://biostructurelab.com" class="project-link" target="_blank">BioStructure Lab</a></td><td>Науковий</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="features">
+                            <div class="feature-item"><span class="feature-check">✓</span> TypeScript</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> RxJS</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> DI</div>
+                            <div class="feature-item"><span class="feature-check">✓</span> Enterprise</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content" id="competencies">
+        <div class="container">
+            <h2 class="section-title">🎯 Ключові компетенції</h2>
+            
+            <div class="competencies">
+                <div class="competency-card">
+                    <h3>Платформи та фреймворки</h3>
+                    <div class="competency-list">
+                        <span class="tag tech">OpenCart</span>
+                        <span class="tag tech">Shopify</span>
+                        <span class="tag tech">Хорошоп</span>
+                        <span class="tag tech">WordPress</span>
+                        <span class="tag tech">Next.js</span>
+                        <span class="tag tech">Django</span>
+                        <span class="tag tech">Angular</span>
+                        <span class="tag tech">Webflow</span>
+                        <span class="tag tech">Squarespace</span>
+                        <span class="tag tech">Framer</span>
+                    </div>
+                </div>
+
+                <div class="competency-card">
+                    <h3>Послуги розробки</h3>
+                    <div class="competency-list">
+                        <span class="tag">Планування та архітектура</span>
+                        <span class="tag">UI/UX дизайн</span>
+                        <span class="tag">Розробка з нуля</span>
+                        <span class="tag">Інтеграція платежів</span>
+                        <span class="tag">SEO оптимізація</span>
+                        <span class="tag">Мобільна адаптивність</span>
+                        <span class="tag">Інтеграція API</span>
+                        <span class="tag">Масштабування</span>
+                    </div>
+                </div>
+
+                <div class="competency-card">
+                    <h3>Галузі спеціалізації</h3>
+                    <div class="competency-list">
+                        <span class="tag">E-commerce</span>
+                        <span class="tag">SaaS платформи</span>
+                        <span class="tag">Стартапи</span>
+                        <span class="tag">Корпоративні сайти</span>
+                        <span class="tag">Медичні портали</span>
+                        <span class="tag">Науково-технічні</span>
+                        <span class="tag">Туризм</span>
+                        <span class="tag">Fashion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <h2 class="section-title">📊 Статистика портфоліо</h2>
+            <div class="platform-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+                <div class="stat-card">
+                    <h3>36</h3>
+                    <p>Проектів</p>
+                </div>
+                <div class="stat-card">
+                    <h3>10</h3>
+                    <p>Платформ</p>
+                </div>
+                <div class="stat-card">
+                    <h3>E-comm</h3>
+                    <p>12 проектів</p>
+                </div>
+                <div class="stat-card">
+                    <h3>No-code</h3>
+                    <p>18 проектів</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Custom</h3>
+                    <p>6 проектів</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <div class="cta-section">
+                <h2>Готові до наступного проекту?</h2>
+                <p>Я допоможу вам вибрати правильну технологію та реалізувати вашу ідею від планування до запуску</p>
+                <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">Почати обговорення</button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <span>💼 Full-Stack Web Developer</span>
+                <span>📍 Poznan, Poland</span>
+                <span>⚡ Спеціалізація: E-commerce, SaaS, Custom development</span>
+            </div>
+            <p>© 2026 Web Development Portfolio | Усі права захищені</p>
+            <p style="margin-top: 12px; font-size: 12px;">Портфоліо оновлено: 07 січня 2026 року</p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollTo(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Add smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
