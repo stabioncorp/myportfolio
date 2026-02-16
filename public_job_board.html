@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Public Job Board Main Screen</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "primary": "#137fec",
+                "background-light": "#f6f7f8",
+                "background-dark": "#101922",
+                },
+                fontFamily: {
+                "display": ["Inter"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-100 antialiased min-h-screen flex flex-col">
+<!-- Header -->
+<header class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<!-- Logo -->
+<div class="flex items-center">
+<a class="flex items-center gap-2" href="#">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                            C
+                        </div>
+<span class="font-bold text-xl tracking-tight text-gray-900 dark:text-white">CryptoJobs</span>
+</a>
+</div>
+<!-- Navigation -->
+<nav class="hidden md:flex space-x-8">
+<a class="text-primary font-medium" href="#">Вакансии</a>
+<a class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors" href="#">Работодателям</a>
+<a class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors" href="#">О нас</a>
+</nav>
+<!-- CTA -->
+<div class="flex items-center gap-4">
+<button class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white md:hidden">
+<span class="material-icons">menu</span>
+</button>
+<a class="hidden md:inline-flex items-center justify-center px-5 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-primary hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" href="#">
+                        Разместить вакансию
+                    </a>
+</div>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<div class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 pb-12 pt-10">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight">
+                Работа в <span class="text-primary">affiliate</span>, <span class="text-primary">crypto</span> и <span class="text-primary">iGaming</span>
+</h1>
+<p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+                Только релевантные вакансии с ручной модерацией и проверенными работодателями.
+            </p>
+<!-- Search Bar -->
+<div class="max-w-4xl mx-auto">
+<div class="bg-white dark:bg-gray-800 p-2 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col md:flex-row gap-2">
+<div class="relative flex-grow group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons text-gray-400 group-focus-within:text-primary">search</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-3 border-none rounded-lg bg-transparent text-gray-900 dark:text-white placeholder-gray-500 focus:ring-0 sm:text-sm" placeholder="Должность, навык или компания" type="text"/>
+</div>
+<div class="hidden md:block w-px bg-gray-200 dark:bg-gray-700 my-2"></div>
+<div class="relative md:w-1/3 group">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons text-gray-400 group-focus-within:text-primary">location_on</span>
+</div>
+<input class="block w-full pl-10 pr-3 py-3 border-none rounded-lg bg-transparent text-gray-900 dark:text-white placeholder-gray-500 focus:ring-0 sm:text-sm" placeholder="Страна или город" type="text"/>
+</div>
+<button class="flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-md transition-all">
+                        Найти
+                    </button>
+</div>
+<div class="mt-4 flex flex-wrap justify-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+<span>Популярные запросы:</span>
+<a class="text-primary hover:underline" href="#">Media Buyer</a>,
+                    <a class="text-primary hover:underline" href="#">Solidity Dev</a>,
+                    <a class="text-primary hover:underline" href="#">Affiliate Manager</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Main Content -->
+<main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+<div class="flex flex-col lg:flex-row gap-8">
+<!-- Sidebar Filters -->
+<aside class="w-full lg:w-72 flex-shrink-0">
+<div class="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 p-6 sticky top-24">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-lg font-semibold text-gray-900 dark:text-white">Фильтры</h2>
+<button class="text-xs text-primary font-medium hover:text-blue-600">Сбросить</button>
+</div>
+<!-- Category Filter -->
+<div class="mb-6">
+<h3 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Категория</h3>
+<div class="space-y-2">
+<label class="flex items-center">
+<input checked="" class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded" type="checkbox"/>
+<span class="ml-2 text-sm text-gray-700 dark:text-gray-300">Affiliate Marketing</span>
+</label>
+<label class="flex items-center">
+<input class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded" type="checkbox"/>
+<span class="ml-2 text-sm text-gray-700 dark:text-gray-300">Разработка / Crypto</span>
+</label>
+<label class="flex items-center">
+<input class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded" type="checkbox"/>
+<span class="ml-2 text-sm text-gray-700 dark:text-gray-300">Design / Creative</span>
+</label>
+<label class="flex items-center">
+<input class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded" type="checkbox"/>
+<span class="ml-2 text-sm text-gray-700 dark:text-gray-300">Support / Sales</span>
+</label>
+</div>
+</div>
+<!-- Work Format -->
+<div class="mb-6">
+<h3 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Формат работы</h3>
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 text-xs font-medium bg-primary/10 text-primary rounded-full border border-primary/20 hover:bg-primary/20 transition-colors">Удаленно</button>
+<button class="px-3 py-1.5 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full border border-transparent hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Офис</button>
+<button class="px-3 py-1.5 text-xs font-medium bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded-full border border-transparent hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">Гибрид</button>
+</div>
+</div>
+<!-- Experience -->
+<div class="mb-8">
+<h3 class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3">Опыт работы</h3>
+<div class="space-y-2">
+<label class="flex items-center">
+<input class="h-4 w-4 text-primary focus:ring-primary border-gray-300" name="exp" type="radio"/>
+<span class="ml-2 text-sm text-gray-700 dark:text-gray-300">Любой</span>
+</label>
+<label class="flex items-center">
+<input class="h-4 w-4 text-primary focus:ring-primary border-gray-300" name="exp" type="radio"/>
+<span class="ml-2 text-sm text-gray-700 dark:text-gray-300">Junior (0-1 год)</span>
+</label>
+<label class="flex items-center">
+<input class="h-4 w-4 text-primary focus:ring-primary border-gray-300" name="exp" type="radio"/>
+<span class="ml-2 text-sm text-gray-700 dark:text-gray-300">Middle (1-3 года)</span>
+</label>
+<label class="flex items-center">
+<input class="h-4 w-4 text-primary focus:ring-primary border-gray-300" name="exp" type="radio"/>
+<span class="ml-2 text-sm text-gray-700 dark:text-gray-300">Senior (3+ лет)</span>
+</label>
+</div>
+</div>
+<button class="w-full flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-primary hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
+                        Применить
+                    </button>
+</div>
+</aside>
+<!-- Jobs List -->
+<div class="flex-grow">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-xl font-bold text-gray-900 dark:text-white">Найдено 142 вакансии</h2>
+<div class="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+<span>Сортировать по:</span>
+<select class="bg-transparent border-none font-medium text-gray-900 dark:text-white focus:ring-0 cursor-pointer pr-8 py-0 pl-0">
+<option>Новизне</option>
+<option>Зарплате</option>
+</select>
+</div>
+</div>
+<div class="space-y-4">
+<!-- Job Card 1 -->
+<div class="bg-white dark:bg-gray-900 rounded-xl p-6 border border-primary/20 hover:border-primary/50 transition-all shadow-sm hover:shadow-md group relative overflow-hidden">
+<div class="absolute top-0 right-0 p-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">
+                                🔥 Срочно
+                            </span>
+</div>
+<div class="flex flex-col sm:flex-row gap-5">
+<div class="flex-shrink-0">
+<div class="w-16 h-16 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden border border-gray-200 dark:border-gray-700">
+<img alt="Abstract company logo gradient" class="w-full h-full object-cover" data-alt="Abstract gradient logo for crypto company" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAngc475HRHaa7P7Q9mrULbBrfEvX3OzZNm-xfFLSujGxP607w72dtjP8bCs2N8ivKeI7U8vRbog36JgUJwSh-SxCTGGCP4YB0s63z4K2AerR5w04j7jU2SmzIbaCvFt0a9rdjWgupBkZMsvhd6WagzVgKYp-zV3L8saMSiM-Lc48ds4YMuIQntFKDCVmoGEAisaccPc3mkCE11FgpMw9XKqBDiKTAhw6n0gTjfFq9ekB2xe4GOOU3TMvm3joL2tdBa3XDLk9yEMw"/>
+</div>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">Senior Media Buyer (FB)</h3>
+<span class="material-icons text-primary text-base" title="Verified Employer">verified</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3 font-medium">Alpha Affiliates • Crypto &amp; Gambling</p>
+<div class="flex flex-wrap items-center gap-y-2 gap-x-4 mb-4 text-sm text-gray-500 dark:text-gray-400">
+<div class="flex items-center gap-1">
+<span class="material-icons text-gray-400 text-sm">payments</span>
+<span class="font-medium text-gray-700 dark:text-gray-300">$3000 - $5500</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-gray-400 text-sm">public</span>
+<span>Удаленно (Worldwide)</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-gray-400 text-sm">schedule</span>
+<span>Полная занятость</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300">Facebook Ads</span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300">Арбитраж</span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300">Team Lead</span>
+</div>
+</div>
+<div class="flex flex-col justify-end">
+<button class="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-lg text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none transition-colors">
+                                    Открыть вакансию
+                                </button>
+<p class="text-xs text-gray-400 mt-2 text-center sm:text-right">2 часа назад</p>
+</div>
+</div>
+</div>
+<!-- Job Card 2 -->
+<div class="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-all shadow-sm hover:shadow-md group">
+<div class="flex flex-col sm:flex-row gap-5">
+<div class="flex-shrink-0">
+<div class="w-16 h-16 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden border border-gray-200 dark:border-gray-700">
+<img alt="Crypto coin pattern logo" class="w-full h-full object-cover" data-alt="Crypto pattern logo blue" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr9LK_7MCF2BBv3SQ30DLXIQixLVlsR09_BLBHet6WhyyyTB2CbWTndCfWoWSli3V2ksmO_GBSmzL-yJ8TzPcaQ7O_fkmaZtQSpubqQrCzW1R9jVNOhx2b-Jh90L2zScOwrdhWnv3D6UYWXfSz1ld9GF6LYm0PyGgbgR0PB0k1E5GidtFpaYVw-fe28v83G-gGAcX2GJo-6BK1nIM4smu-7jX7VsAb7RM8c8OEFR5cETP4mTcgqFLXCY8kAv8y_fznOVo5GnfbRg"/>
+</div>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">Solidity Smart Contract Developer</h3>
+<span class="material-icons text-primary text-base" title="Verified Employer">verified</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3 font-medium">DeFi Protocol X • Blockchain</p>
+<div class="flex flex-wrap items-center gap-y-2 gap-x-4 mb-4 text-sm text-gray-500 dark:text-gray-400">
+<div class="flex items-center gap-1">
+<span class="material-icons text-gray-400 text-sm">payments</span>
+<span class="font-medium text-gray-700 dark:text-gray-300">$6000 - $9000</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-gray-400 text-sm">location_on</span>
+<span>Дубай (Relocation)</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300">Solidity</span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300">Rust</span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300">DeFi</span>
+</div>
+</div>
+<div class="flex flex-col justify-end">
+<button class="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-lg text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none transition-colors">
+                                    Открыть вакансию
+                                </button>
+<p class="text-xs text-gray-400 mt-2 text-center sm:text-right">5 часов назад</p>
+</div>
+</div>
+</div>
+<!-- Job Card 3 -->
+<div class="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-all shadow-sm hover:shadow-md group">
+<div class="flex flex-col sm:flex-row gap-5">
+<div class="flex-shrink-0">
+<div class="w-16 h-16 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden border border-gray-200 dark:border-gray-700">
+<img alt="Modern office building minimal" class="w-full h-full object-cover" data-alt="Office building minimalist icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAEha8BcP7ddF16hAIjSN10vDty-m6EQjm5fR3Ngg0Rz9llXNubBrS8lDb12ULQEDwcMyMdls1UQeGwhy40dWMEPKitTLk310eSIKmmGqwOD9zLs_tJ251v7QPvXbtu9AZei5my8iMZfg27YVM7ErEJ2fL22rmQKfyG33MFDdWIMF-CNDROWWJYU93T0ziubaKDQyDSckxSTUC30ihuSyPclNcQiBO0SvbElVyrRrLV55wu9RT1ek_8LkQHkIAU7-wR_JbvkiIiw"/>
+</div>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">Affiliate Manager (Gambling)</h3>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3 font-medium">WinWin Partners • iGaming</p>
+<div class="flex flex-wrap items-center gap-y-2 gap-x-4 mb-4 text-sm text-gray-500 dark:text-gray-400">
+<div class="flex items-center gap-1">
+<span class="material-icons text-gray-400 text-sm">payments</span>
+<span class="font-medium text-gray-700 dark:text-gray-300">$1500 + KPI</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-gray-400 text-sm">public</span>
+<span>Удаленно</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-gray-400 text-sm">school</span>
+<span>Junior / Middle</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300">Sales</span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300">English B2</span>
+</div>
+</div>
+<div class="flex flex-col justify-end">
+<button class="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-lg text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none transition-colors">
+                                    Открыть вакансию
+                                </button>
+<p class="text-xs text-gray-400 mt-2 text-center sm:text-right">1 день назад</p>
+</div>
+</div>
+</div>
+<!-- Job Card 4 -->
+<div class="bg-white dark:bg-gray-900 rounded-xl p-6 border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-all shadow-sm hover:shadow-md group">
+<div class="flex flex-col sm:flex-row gap-5">
+<div class="flex-shrink-0">
+<div class="w-16 h-16 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center overflow-hidden border border-gray-200 dark:border-gray-700">
+<div class="w-full h-full bg-indigo-900 flex items-center justify-center text-white font-bold text-xl">
+                                        TX
+                                    </div>
+</div>
+</div>
+<div class="flex-grow">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors">Community Manager (Discord/TG)</h3>
+<span class="material-icons text-primary text-base" title="Verified Employer">verified</span>
+</div>
+<p class="text-sm text-gray-600 dark:text-gray-400 mb-3 font-medium">Terra Exchange • Crypto</p>
+<div class="flex flex-wrap items-center gap-y-2 gap-x-4 mb-4 text-sm text-gray-500 dark:text-gray-400">
+<div class="flex items-center gap-1">
+<span class="material-icons text-gray-400 text-sm">payments</span>
+<span class="font-medium text-gray-700 dark:text-gray-300">$1200 - $2000</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-icons text-gray-400 text-sm">public</span>
+<span>Удаленно</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300">SMM</span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300">Copywriting</span>
+</div>
+</div>
+<div class="flex flex-col justify-end">
+<button class="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-lg text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none transition-colors">
+                                    Открыть вакансию
+                                </button>
+<p class="text-xs text-gray-400 mt-2 text-center sm:text-right">1 день назад</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-8 flex justify-center">
+<nav class="flex items-center space-x-2">
+<a class="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700" href="#">Пред.</a>
+<a class="px-3 py-2 rounded-lg border border-primary bg-primary text-sm font-medium text-white" href="#">1</a>
+<a class="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" href="#">2</a>
+<a class="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" href="#">3</a>
+<span class="px-3 py-2 text-gray-500">...</span>
+<a class="px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm font-medium text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700" href="#">След.</a>
+</nav>
+</div>
+</div>
+</div>
+</main>
+<!-- Trust Strip -->
+<div class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-8">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+<span class="material-icons text-primary text-2xl">verified_user</span>
+</div>
+<h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Модерация вакансий</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 max-w-xs">Каждая вакансия проверяется вручную перед публикацией для вашей безопасности.</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+<span class="material-icons text-primary text-2xl">bolt</span>
+</div>
+<h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Прямые контакты</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 max-w-xs">Связывайтесь с рекрутерами напрямую без посредников и долгих ожиданий.</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+<span class="material-icons text-primary text-2xl">visibility</span>
+</div>
+<h3 class="text-lg font-medium text-gray-900 dark:text-white mb-2">Прозрачные условия</h3>
+<p class="text-sm text-gray-500 dark:text-gray-400 max-w-xs">Требуем указывать вилку зарплат и четкие требования в каждом объявлении.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="col-span-1 md:col-span-1">
+<a class="flex items-center gap-2 mb-4" href="#">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-xl">
+                            C
+                        </div>
+<span class="font-bold text-xl text-gray-900 dark:text-white">CryptoJobs</span>
+</a>
+<p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                        Ведущая платформа для поиска работы в Affiliate, Crypto и iGaming индустрии.
+                    </p>
+</div>
+<div>
+<h4 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Кандидатам</h4>
+<ul class="space-y-3">
+<li><a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">Все вакансии</a></li>
+<li><a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">Категории</a></li>
+<li><a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">Работодатели</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Работодателям</h4>
+<ul class="space-y-3">
+<li><a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">Разместить вакансию</a></li>
+<li><a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">Цены</a></li>
+<li><a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">Партнерам</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-sm font-semibold text-gray-900 dark:text-white uppercase tracking-wider mb-4">Контакты</h4>
+<ul class="space-y-3">
+<li><a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">Telegram Support</a></li>
+<li><a class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary transition-colors" href="#">support@cryptojobs.com</a></li>
+</ul>
+</div>
+</div>
+<div class="border-t border-gray-200 dark:border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+<p class="text-sm text-gray-400">© 2023 CryptoJobs. Все права защищены.</p>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<a class="text-sm text-gray-400 hover:text-gray-500" href="#">Политика конфиденциальности</a>
+<a class="text-sm text-gray-400 hover:text-gray-500" href="#">Условия использования</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
