@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Employer Dashboard - Variant 1</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+            extend: {
+                colors: {
+                "primary": "#137fec",
+                "background-light": "#f6f7f8",
+                "background-dark": "#101922",
+                },
+                fontFamily: {
+                "display": ["Inter", "sans-serif"]
+                },
+                borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 font-display min-h-screen flex">
+<!-- Sidebar -->
+<aside class="w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex flex-col fixed inset-y-0 left-0 z-50">
+<!-- Logo Area -->
+<div class="h-16 flex items-center px-6 border-b border-slate-100 dark:border-slate-800">
+<div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center text-white font-bold text-xl mr-3">
+                J
+            </div>
+<span class="text-lg font-bold text-slate-900 dark:text-white tracking-tight">JobAffiliate</span>
+</div>
+<!-- Navigation -->
+<nav class="flex-1 px-4 py-6 space-y-1">
+<a class="flex items-center px-4 py-3 text-sm font-medium rounded-lg bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-400 group relative" href="#">
+<span class="material-icons text-xl mr-3">work_outline</span>
+                Мои вакансии
+                <div class="absolute right-2 w-1.5 h-1.5 rounded-full bg-primary"></div>
+</a>
+<a class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors group" href="#">
+<span class="material-icons text-xl mr-3 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300">people_outline</span>
+                Отклики
+                <span class="ml-auto bg-primary text-white py-0.5 px-2 rounded-full text-xs font-semibold">4</span>
+</a>
+<a class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors group" href="#">
+<span class="material-icons text-xl mr-3 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300">business</span>
+                Профиль компании
+            </a>
+<a class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors group" href="#">
+<span class="material-icons text-xl mr-3 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300">account_balance_wallet</span>
+                Финансы
+            </a>
+<div class="pt-6 mt-6 border-t border-slate-100 dark:border-slate-800">
+<p class="px-4 text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2">Настройки</p>
+<a class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors group" href="#">
+<span class="material-icons text-xl mr-3 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300">settings</span>
+                    Настройки
+                </a>
+<a class="flex items-center px-4 py-3 text-sm font-medium rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors group" href="#">
+<span class="material-icons text-xl mr-3 text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-300">help_outline</span>
+                    Поддержка
+                </a>
+</div>
+</nav>
+<!-- User Profile -->
+<div class="p-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3 w-full p-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer">
+<img alt="User Avatar" class="w-10 h-10 rounded-full object-cover border border-slate-200 dark:border-slate-700" data-alt="Professional man portrait in suit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7ML3ZzqzSskgqM8I1W1iY9d7T9XtpywxnclctA6zM302GjQCNG3Nvee0UiwB06npRQDvlADJnGb35sJnW5F5Z3_1VvLo7IOW992GdJD8mWeY4fDm-_FBX3UbSj372A9en2PKPoMlg0c1N6BkeYHAuepgDrZWg0PEp8D9b6mDgytKLoi5w0o8KtVXbE6c-Xxu4bXwxD8r4Jc-Jlocrjy7ft7E9BmIV3l5rZS_D26DT2Q8J_RuDGrnQhvHdhaCZ4UZmLAc4XUuBhQ"/>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-semibold text-slate-900 dark:text-white truncate">Александр В.</p>
+<p class="text-xs text-slate-500 truncate">Recruiter at BetTech</p>
+</div>
+<span class="material-icons text-slate-400 text-lg">logout</span>
+</div>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="ml-64 flex-1 p-8 overflow-y-auto">
+<!-- Header Section -->
+<header class="flex justify-between items-center mb-8">
+<div>
+<h1 class="text-2xl font-bold text-slate-900 dark:text-white">Кабинет работодателя</h1>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Управляйте вашими вакансиями и находите лучших талантов в iGaming.</p>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 text-sm font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors shadow-sm">
+<span class="material-icons text-lg mr-2">download</span>
+                    Экспорт
+                </button>
+<button class="flex items-center px-4 py-2.5 bg-primary hover:bg-blue-600 text-white rounded-lg text-sm font-medium shadow-md shadow-blue-500/20 transition-all transform hover:-translate-y-0.5">
+<span class="material-icons text-lg mr-2">add</span>
+                    Новая вакансия
+                </button>
+</div>
+</header>
+<!-- Alert Panel -->
+<div class="mb-8 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded-lg flex items-start gap-3">
+<span class="material-icons text-primary mt-0.5">info</span>
+<div class="flex-1">
+<h3 class="text-sm font-medium text-slate-900 dark:text-white">Вакансия на проверке</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Ваша вакансия "Senior Media Buyer (Crypto)" успешно отправлена и ожидает одобрения модератора.</p>
+</div>
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300">
+<span class="material-icons text-lg">close</span>
+</button>
+</div>
+<!-- KPI Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+<!-- Active Vacancies -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 rounded-lg bg-green-50 dark:bg-green-900/20 flex items-center justify-center text-green-600 dark:text-green-400">
+<span class="material-icons">check_circle_outline</span>
+</div>
+<span class="text-xs font-medium text-green-600 bg-green-50 dark:bg-green-900/20 px-2 py-1 rounded-full">+2 за неделю</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold text-slate-900 dark:text-white">12</span>
+<span class="text-sm text-slate-500 font-medium">активных</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Активные вакансии</p>
+</div>
+<!-- New Applications -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow group cursor-pointer border-l-4 border-l-primary">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-icons">people_alt</span>
+</div>
+<span class="text-xs font-medium text-primary bg-blue-50 dark:bg-blue-900/20 px-2 py-1 rounded-full">+12 сегодня</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold text-slate-900 dark:text-white">48</span>
+<span class="text-sm text-slate-500 font-medium">новых</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Новые отклики</p>
+</div>
+<!-- On Moderation -->
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between mb-4">
+<div class="w-10 h-10 rounded-lg bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center text-orange-500">
+<span class="material-icons">hourglass_empty</span>
+</div>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-bold text-slate-900 dark:text-white">1</span>
+<span class="text-sm text-slate-500 font-medium">вакансия</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">На модерации</p>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-8">
+<!-- Main Section: My Vacancies -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Последние вакансии</h2>
+<a class="text-sm font-medium text-primary hover:text-blue-700 dark:hover:text-blue-400 flex items-center" href="#">
+                        Смотреть все
+                        <span class="material-icons text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-slate-50 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-800">
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Вакансия</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">GEO</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Дата</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider">Статус</th>
+<th class="px-6 py-4 text-xs font-semibold text-slate-500 uppercase tracking-wider text-right">Действия</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<!-- Row 1 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-medium text-slate-900 dark:text-white">Senior Media Buyer</span>
+<span class="text-xs text-slate-500">Facebook • Crypto</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                                            WW
+                                        </span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">
+                                        12 мая, 2023
+                                    </td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+<span class="w-1.5 h-1.5 bg-green-600 rounded-full mr-1.5"></span>
+                                            Опубликовано
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons text-xl">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-medium text-slate-900 dark:text-white">Affiliate Manager</span>
+<span class="text-xs text-slate-500">Gambling • CPA</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                                            CIS
+                                        </span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">
+                                        10 мая, 2023
+                                    </td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-400">
+<span class="w-1.5 h-1.5 bg-orange-500 rounded-full mr-1.5"></span>
+                                            На модерации
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons text-xl">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-medium text-slate-900 dark:text-white">Team Lead PPC</span>
+<span class="text-xs text-slate-500">Google Ads • Betting</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                                            LatAm
+                                        </span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">
+                                        05 мая, 2023
+                                    </td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+<span class="w-1.5 h-1.5 bg-green-600 rounded-full mr-1.5"></span>
+                                            Опубликовано
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons text-xl">more_horiz</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors opacity-60">
+<td class="px-6 py-4">
+<div class="flex flex-col">
+<span class="font-medium text-slate-900 dark:text-white">Junior Media Buyer</span>
+<span class="text-xs text-slate-500">TikTok • Nutra</span>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                                            RU
+                                        </span>
+</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400">
+                                        20 апр, 2023
+                                    </td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400">
+<span class="w-1.5 h-1.5 bg-slate-500 rounded-full mr-1.5"></span>
+                                            В архиве
+                                        </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons text-xl">more_horiz</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Secondary Section: Recent Applications -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<div class="flex items-center justify-between">
+<h2 class="text-lg font-bold text-slate-900 dark:text-white">Новые отклики</h2>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-2 shadow-sm">
+<div class="space-y-1">
+<!-- Application Item 1 -->
+<div class="p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer group">
+<div class="flex items-start gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-slate-100 dark:border-slate-700" data-alt="Candidate portrait male" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBepJaJfd4mGtQBUgW579g1CRO-hddfnAnwMb0Ygh42KR_xczQonDeVb3GZfeBKMKsor59f0BMCgA9UOKr1fUmEbGeZvbo2sJWigbOI20c9b2h-hFlqq5NXGklHKhshZX30d9ISLVJLcFNWhOZqwMWug2gilHr6EEmhaivmx04gfq5b5awRtXwk8louX8NrskojFzdymoCj1C2gwGr8LBsyOvBs1Vb9PG_yOsrwPUQr3WcyQj6thsEzohXLlQ0aZbzMHrO9yHJ2aA"/>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-0.5">
+<h4 class="text-sm font-semibold text-slate-900 dark:text-white truncate">Дмитрий К.</h4>
+<span class="text-xs text-slate-400">2ч</span>
+</div>
+<p class="text-xs text-slate-500 truncate">Senior Media Buyer</p>
+<div class="mt-2 flex flex-wrap gap-2">
+<span class="inline-flex items-center text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-1.5 py-0.5 rounded">
+                                            3+ года
+                                        </span>
+<span class="inline-flex items-center text-[10px] text-primary bg-primary/10 px-1.5 py-0.5 rounded font-medium">
+<span class="material-icons text-[10px] mr-1">send</span> @dmitry_arb
+                                        </span>
+</div>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-slate-400 hover:text-primary">
+<span class="material-icons text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Application Item 2 -->
+<div class="p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer group">
+<div class="flex items-start gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-slate-100 dark:border-slate-700" data-alt="Candidate portrait female" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC01srNNJIrQe7LedApakNMwyjoFYnZiWzcNBourfWVtpiygWXYd6vIZvhxvRacaoJ-QjBKHL-sK4dhx5Em8UfzyDNB2FdWEZZiS2-7YDeBF-f2Y_aGx3GNm0hiRfWUT1rHDJbwVTfs-i9i55-V56oe0nsqugQO5E8bpy0QNgW08EltfRYToMtPgKITKxbj47wYNdVKPOoaXYSQU_a83FCfS6qucLhU9GtVXr-X5_2PGyZFGwrxtRJwXbU6nLMQNpQEqtWXScT_IA"/>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-0.5">
+<h4 class="text-sm font-semibold text-slate-900 dark:text-white truncate">Елена С.</h4>
+<span class="text-xs text-slate-400">4ч</span>
+</div>
+<p class="text-xs text-slate-500 truncate">Affiliate Manager</p>
+<div class="mt-2 flex flex-wrap gap-2">
+<span class="inline-flex items-center text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-1.5 py-0.5 rounded">
+                                            1.5 года
+                                        </span>
+<span class="inline-flex items-center text-[10px] text-primary bg-primary/10 px-1.5 py-0.5 rounded font-medium">
+<span class="material-icons text-[10px] mr-1">send</span> @elena_cpa
+                                        </span>
+</div>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-slate-400 hover:text-primary">
+<span class="material-icons text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Application Item 3 -->
+<div class="p-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors cursor-pointer group">
+<div class="flex items-start gap-3">
+<img class="w-10 h-10 rounded-full object-cover border border-slate-100 dark:border-slate-700" data-alt="Candidate portrait male" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjpbwx5FFwc4ZtCTLT7vdMfJNIwyPfTmswbhQVrNnyrqnVAKVOtgnjuwHo_RYdp8eH0HhgWyNNshkVP0cbDZHFgeaP2Gifn8fEK_2w8tHOY2DxWWJ3fVq6nJMtuJnqGHWtGcgMFPEcDK-NO-bkqnuuV2x8aFAz5a8RdWoMSLl2BrtS5K8fWW8cw1W8XgdDt3DMjcWpW_KwupP32U7uwTt0dxi7QLNKY1GsYlpBt_TZ6IyRtOVIxIdqsSmpUsdmS7TWwGoi1C0iUQ"/>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-center mb-0.5">
+<h4 class="text-sm font-semibold text-slate-900 dark:text-white truncate">Максим И.</h4>
+<span class="text-xs text-slate-400">Вчера</span>
+</div>
+<p class="text-xs text-slate-500 truncate">Team Lead PPC</p>
+<div class="mt-2 flex flex-wrap gap-2">
+<span class="inline-flex items-center text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-1.5 py-0.5 rounded">
+                                            5 лет
+                                        </span>
+<span class="inline-flex items-center text-[10px] text-primary bg-primary/10 px-1.5 py-0.5 rounded font-medium">
+<span class="material-icons text-[10px] mr-1">send</span> @max_traffic
+                                        </span>
+</div>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-slate-400 hover:text-primary">
+<span class="material-icons text-lg">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-2 py-2 text-xs font-medium text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 border-t border-slate-100 dark:border-slate-800 transition-colors">
+                        Показать еще
+                    </button>
+</div>
+<!-- Promo Block -->
+<div class="bg-gradient-to-br from-primary to-blue-700 rounded-xl p-6 text-white shadow-md relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="font-bold text-lg mb-2">Нанимайте быстрее!</h3>
+<p class="text-blue-100 text-sm mb-4">Поднимите ваши вакансии в ТОП и получите x3 больше откликов.</p>
+<button class="bg-white text-primary text-xs font-bold py-2 px-4 rounded-lg hover:bg-blue-50 transition-colors">
+                            Продвинуть вакансии
+                        </button>
+</div>
+<!-- Decorative Circle -->
+<div class="absolute -bottom-6 -right-6 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
+</div>
+</div>
+</div>
+</main>
+</body></html>
