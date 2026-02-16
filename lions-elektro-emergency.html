@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html lang="uk"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LionsElektro - Екстрений електрик у Києві</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#136dec",
+              "primary-dark": "#0e5bc4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101822",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 antialiased">
+<!-- Sticky Header -->
+<header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-20">
+<!-- Logo -->
+<div class="flex-shrink-0 flex items-center gap-2">
+<div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+<span class="material-icons text-primary text-2xl">bolt</span>
+</div>
+<div>
+<span class="block text-xl font-bold tracking-tight text-slate-900 dark:text-white leading-none">LionsElektro</span>
+<span class="text-xs font-medium text-slate-500 dark:text-slate-400">Швидка допомога 24/7</span>
+</div>
+</div>
+<!-- Desktop Nav -->
+<nav class="hidden md:flex space-x-8">
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary font-medium transition-colors" href="#services">Послуги</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary font-medium transition-colors" href="#prices">Ціни</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary font-medium transition-colors" href="#reviews">Відгуки</a>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary font-medium transition-colors" href="#contact">Контакти</a>
+</nav>
+<!-- Header CTA -->
+<div class="flex items-center gap-4">
+<div class="hidden lg:block text-right">
+<p class="text-xs text-slate-500 dark:text-slate-400">Терміновий виклик</p>
+<a class="font-bold text-slate-900 dark:text-white hover:text-primary transition-colors text-lg" href="tel:+380441234567">+380 44 123 45 67</a>
+</div>
+<a class="hidden sm:inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-semibold rounded-lg text-white bg-primary hover:bg-primary-dark shadow-md hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary" href="#contact">
+                        Викликати майстра
+                    </a>
+</div>
+</div>
+</div>
+</header>
+<!-- Hero Section -->
+<section class="relative bg-background-light dark:bg-background-dark overflow-hidden">
+<div class="absolute inset-y-0 right-0 w-full md:w-1/2 bg-slate-100 dark:bg-slate-800 lg:bg-transparent">
+<div class="h-full w-full object-cover lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-1/2 bg-slate-200" data-alt="Electrician checking fuse box with tools" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA0Fp7Wp6dl67OKXRWRJUkLlwnPBYMngdKAJZJrXfchNFzGkDg5ujxwPWohB_BE2WrwNmh5-NNBez6GfKyJ-sSWX7Yyyy4uEbFocoIIbcGMQz65TdSZ5stuTMcaQI5biGLgZacm-BbEj19jecU1qa8OS9QF-ZAYnEpnvwvTcTF72_pW7mYIN2E6BU1QhkBaXPFGz7-2vFNl-nme3knu5IgCmvd67hg8eRJkc55d4_q_Advwj2muypPKNKlcfzVtZv4pw1bpbKMz-Sc'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-primary/20 mix-blend-multiply"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background-light via-background-light/80 to-transparent dark:from-background-dark dark:via-background-dark/80 lg:via-background-light/30"></div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative pt-16 pb-20 lg:pt-32 lg:pb-28">
+<div class="lg:w-1/2">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 text-sm font-semibold mb-6 border border-amber-200 dark:border-amber-800">
+<span class="w-2 h-2 rounded-full bg-amber-500 mr-2 animate-pulse"></span>
+                    Працюємо під час блекаутів
+                </div>
+<h1 class="text-4xl tracking-tight font-extrabold text-slate-900 dark:text-white sm:text-5xl md:text-6xl mb-6">
+                    Екстрений електрик у <span class="text-primary">Києві</span> 24/7
+                </h1>
+<p class="mt-4 text-xl text-slate-600 dark:text-slate-300 max-w-lg mb-8 leading-relaxed">
+                    Офіційна гарантія на роботи. Прибуття майстра протягом 45 хвилин у будь-який район міста. Без прихованих платежів.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-bold rounded-xl text-white bg-primary hover:bg-primary-dark shadow-lg shadow-primary/30 transition-all transform hover:-translate-y-0.5" href="tel:+380441234567">
+<span class="material-icons mr-2">phone_in_talk</span>
+                        Терміновий виклик
+                    </a>
+<a class="inline-flex justify-center items-center px-8 py-4 border-2 border-slate-200 dark:border-slate-700 text-base font-semibold rounded-xl text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 transition-all" href="#contact">
+                        Замовити дзвінок
+                    </a>
+</div>
+<div class="mt-10 flex items-center gap-6 text-sm text-slate-500 dark:text-slate-400">
+<div class="flex items-center">
+<span class="material-icons text-green-500 mr-2 text-base">check_circle</span>
+<span>Ліцензовані майстри</span>
+</div>
+<div class="flex items-center">
+<span class="material-icons text-green-500 mr-2 text-base">check_circle</span>
+<span>Гарантія 1 рік</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Stack / Features -->
+<section class="bg-white dark:bg-slate-900 py-12 border-y border-slate-100 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+<!-- Trust Item 1 -->
+<div class="flex flex-col md:flex-row items-center md:items-start gap-4 p-4 rounded-xl hover:bg-background-light dark:hover:bg-slate-800 transition-colors">
+<div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-icons">verified_user</span>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white text-lg">Гарантія якості</h3>
+<p class="text-slate-600 dark:text-slate-400 mt-1">Ми надаємо письмову гарантію на всі виконані роботи терміном від 1 року.</p>
+</div>
+</div>
+<!-- Trust Item 2 -->
+<div class="flex flex-col md:flex-row items-center md:items-start gap-4 p-4 rounded-xl hover:bg-background-light dark:hover:bg-slate-800 transition-colors">
+<div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-icons">payments</span>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white text-lg">Чесна ціна</h3>
+<p class="text-slate-600 dark:text-slate-400 mt-1">Фіксуємо вартість робіт до початку виконання. Жодних сюрпризів у фінальному рахунку.</p>
+</div>
+</div>
+<!-- Trust Item 3 -->
+<div class="flex flex-col md:flex-row items-center md:items-start gap-4 p-4 rounded-xl hover:bg-background-light dark:hover:bg-slate-800 transition-colors">
+<div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+<span class="material-icons">schedule</span>
+</div>
+<div>
+<h3 class="font-bold text-slate-900 dark:text-white text-lg">Працюємо 24/7</h3>
+<p class="text-slate-600 dark:text-slate-400 mt-1">Аварійна бригада готова виїхати до вас у будь-який час доби, навіть у вихідні.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Grid -->
+<section class="py-20 bg-background-light dark:bg-background-dark" id="services">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl">
+                    Наші послуги
+                </h2>
+<p class="mt-4 text-lg text-slate-600 dark:text-slate-400">
+                    Вирішуємо будь-які проблеми з електрикою: від заміни розетки до повного монтажу проводки в квартирі чи офісі.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Service Card 1 -->
+<div class="group bg-white dark:bg-slate-900 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 overflow-hidden">
+<div class="h-48 overflow-hidden bg-slate-200 relative">
+<img alt="Close up of wires in a fuse box" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Close up detailed shot of colorful electrical wires" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf-FxefYEpGB8Vr4w9gtZxNDlUdUk9ia1_X8OC3n822IpxHKLSbZQtEAShPg6nqcmMV6CB65CzS_iVamItvm_2SGq6eDchnTc1QJYdBFuqKvZ5tUp6unT-OSvlzTjfQ2RiuZhagfGWIyjeumScLpIboujej3r6pOzPDJ6fXCuqu6GMSN-hGWWliQPqiSrZQVBoJeXAHH8rHpNk5YkBEs_JPMRoP3Yxt3Qv4_zulzae3P0hrZ2LX6AWdnHLWu1HW9xfKdknkRj8URA"/>
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center -mt-12 mb-4 relative z-10 shadow-lg">
+<span class="material-icons text-2xl">warning</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Аварійний ремонт</h3>
+<p class="text-slate-600 dark:text-slate-400 mb-4 line-clamp-3">
+                            Усунення короткого замикання, відновлення електропостачання, ремонт обгорілих контактів в щитку.
+                        </p>
+<a class="inline-flex items-center text-primary font-semibold hover:text-primary-dark" href="#contact">
+                            Викликати майстра <span class="material-icons text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Service Card 2 -->
+<div class="group bg-white dark:bg-slate-900 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 overflow-hidden">
+<div class="h-48 overflow-hidden bg-slate-200 relative">
+<img alt="Installation of electrical outlet on white wall" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Hands installing a white electrical socket into wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo3haIoMBeVx6jT1PbJf6DE7iA0HdxSv95TCC6Pdnz5sced6Ty10VivVA0-KH6EZEHo2NF8tdJkxUVlKCIE3h-9O3L1kyZzchaxMai6K6znI3eXtEDXvIItIyjtugRavNeszV8fy9DOXuVQi3AwjMRPz6LXn-OzJzpHAXJo6HwbEOs_yPdQLzIACfXNqSpx0uVzYAY-nQQaCpwhRDMXG73phCs7qpWKdiasQ45N1K2IswhtG_XquMPeomvYuJMYsRYaKAEDcrQiP0"/>
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center -mt-12 mb-4 relative z-10 shadow-lg">
+<span class="material-icons text-2xl">power</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Монтаж проводки</h3>
+<p class="text-slate-600 dark:text-slate-400 mb-4 line-clamp-3">
+                            Повна або часткова заміна електропроводки в квартирах та будинках. Штроблення стін, укладка кабелю.
+                        </p>
+<a class="inline-flex items-center text-primary font-semibold hover:text-primary-dark" href="#contact">
+                            Детальніше <span class="material-icons text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Service Card 3 -->
+<div class="group bg-white dark:bg-slate-900 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 dark:border-slate-800 overflow-hidden">
+<div class="h-48 overflow-hidden bg-slate-200 relative">
+<img alt="Professional electric meter installation" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Modern electrical panel with switches and breakers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC56gGVeAWwwnb8CuZD6koSka9BDglKIxqK34jaSmXmjzp_siLE5yESrscqu6UeJq3QfwMm6oYLj08P9NMt2K9f24rrrFkA9zi-ZgiMnuWdY-1FVYrr9rT4-rXEvSTKxTFdCkmz16l_3FebPv2zmPk5gWnf5DLbDO4ZgKbT1bv-OHkdhrgR_lkWgLNVdgJZRF864GwLFItdmSRz6Got0zr7hSY03OnUNv4hW0-Ia7L9emijOGy35WzH7VPAHuHY8lVX0_xcm2GXmXc"/>
+</div>
+<div class="p-6">
+<div class="w-12 h-12 bg-primary text-white rounded-lg flex items-center justify-center -mt-12 mb-4 relative z-10 shadow-lg">
+<span class="material-icons text-2xl">settings_input_component</span>
+</div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Встановлення щитків</h3>
+<p class="text-slate-600 dark:text-slate-400 mb-4 line-clamp-3">
+                            Збірка та монтаж електрощитів, встановлення автоматів захисту, ПЗВ, реле напруги та лічильників.
+                        </p>
+<a class="inline-flex items-center text-primary font-semibold hover:text-primary-dark" href="#contact">
+                            Детальніше <span class="material-icons text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-20 bg-white dark:bg-slate-900" id="prices">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+<div class="max-w-2xl">
+<h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-4">
+                        Прозорі ціни
+                    </h2>
+<p class="text-lg text-slate-600 dark:text-slate-400">
+                        Орієнтовна вартість популярних послуг. Остаточна ціна формується після діагностики.
+                    </p>
+</div>
+<div class="hidden md:block">
+<a class="text-primary font-medium hover:underline flex items-center" href="#">
+                        Завантажити повний прайс (PDF) <span class="material-icons text-sm ml-1">download</span>
+</a>
+</div>
+</div>
+<div class="bg-background-light dark:bg-background-dark rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800">
+<div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200 dark:divide-slate-800">
+<div class="p-8">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Популярні послуги</h3>
+<ul class="space-y-4">
+<li class="flex justify-between items-center border-b border-slate-200/50 dark:border-slate-700/50 pb-3 last:border-0 last:pb-0">
+<span class="text-slate-700 dark:text-slate-300">Діагностика несправності</span>
+<span class="font-bold text-primary">від 300 грн</span>
+</li>
+<li class="flex justify-between items-center border-b border-slate-200/50 dark:border-slate-700/50 pb-3 last:border-0 last:pb-0">
+<span class="text-slate-700 dark:text-slate-300">Заміна розетки / вимикача</span>
+<span class="font-bold text-primary">від 150 грн/шт</span>
+</li>
+<li class="flex justify-between items-center border-b border-slate-200/50 dark:border-slate-700/50 pb-3 last:border-0 last:pb-0">
+<span class="text-slate-700 dark:text-slate-300">Монтаж люстри</span>
+<span class="font-bold text-primary">від 450 грн</span>
+</li>
+<li class="flex justify-between items-center border-b border-slate-200/50 dark:border-slate-700/50 pb-3 last:border-0 last:pb-0">
+<span class="text-slate-700 dark:text-slate-300">Встановлення автомату</span>
+<span class="font-bold text-primary">від 200 грн</span>
+</li>
+</ul>
+</div>
+<div class="p-8">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6 uppercase tracking-wider text-sm">Монтажні роботи</h3>
+<ul class="space-y-4">
+<li class="flex justify-between items-center border-b border-slate-200/50 dark:border-slate-700/50 pb-3 last:border-0 last:pb-0">
+<span class="text-slate-700 dark:text-slate-300">Прокладання кабелю (відкрито)</span>
+<span class="font-bold text-primary">від 25 грн/м</span>
+</li>
+<li class="flex justify-between items-center border-b border-slate-200/50 dark:border-slate-700/50 pb-3 last:border-0 last:pb-0">
+<span class="text-slate-700 dark:text-slate-300">Штроблення стін (цегла)</span>
+<span class="font-bold text-primary">від 100 грн/м</span>
+</li>
+<li class="flex justify-between items-center border-b border-slate-200/50 dark:border-slate-700/50 pb-3 last:border-0 last:pb-0">
+<span class="text-slate-700 dark:text-slate-300">Збірка електрощита</span>
+<span class="font-bold text-primary">від 1200 грн</span>
+</li>
+<li class="flex justify-between items-center border-b border-slate-200/50 dark:border-slate-700/50 pb-3 last:border-0 last:pb-0">
+<span class="text-slate-700 dark:text-slate-300">Підключення стабілізатора</span>
+<span class="font-bold text-primary">від 800 грн</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="mt-8 bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-800 rounded-lg p-4 flex items-start gap-4">
+<span class="material-icons text-amber-500 mt-0.5">info</span>
+<p class="text-sm text-slate-700 dark:text-slate-300">
+<span class="font-bold">Важливо:</span> Мінімальна вартість виклику майстра складає 500 грн. Виїзд за межі міста оплачується додатково (15 грн/км).
+                </p>
+</div>
+</div>
+</section>
+<!-- Portfolio Preview -->
+<section class="py-20 bg-background-light dark:bg-background-dark overflow-hidden">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-12 text-center">Останні роботи</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<div class="relative group rounded-xl overflow-hidden h-64 md:h-80 col-span-2 md:col-span-2">
+<img alt="Finished modern kitchen lighting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern kitchen interior with installed LED lighting strips under cabinets" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAISPHVJrQ8GiFhVjFbCpoz1cS_eOP3PpC2K-oHUh1kNyaMb3HJXPZZsvPXLULo5LUfQsjNMlJ4E8ySbUIkF7_yfTr53My7zwtIhRTCxlOaU8r9S-KkgBxtjEWieXLJuEY9rVk2beUoqm4n9mDmWe_7oWpJes8vOKksB1gLy8JllxgPRojomP0gtsTyVMqqkEDgPkJ6axTmXscv6ZTmgg-e65vSlYAkKMifdCv-SJO-RORrEQ4JyAwdJM3lCvIq70Ete6I8OdG91EY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="text-white font-bold text-lg">LED освітлення кухні</span>
+<span class="text-white/80 text-sm">Монтаж, Печерськ</span>
+</div>
+</div>
+<div class="relative group rounded-xl overflow-hidden h-64 md:h-80 col-span-1">
+<img alt="Neat electrical panel wiring" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Perfectly organized colored wires inside a grey electrical distribution box" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAONqasyCoSU8rSlzBu9MU-YZmJGGhvgVGSZjuol_oH-SL7irgqBJj9L6P7gByxNjhd9TnOiPXkh0flJE3-2oKGAnqBkRr-F1rcHG3EOXUWk1haaBPBadenUgGEy6rwOaw2vqKFUqE6R_p1OdJuE6LbC_IvO3BCaphocHpJKAYsmyiJxzyCUsEUVJLQcFhnqwTlyaIfvwHQlirezHUP3nKpBCzEjNbyMgjmWs-k-xCDwwkWM2c1b50XsEoClGL2RRz9AE-vy0x0Qhc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="text-white font-bold text-sm">Збірка щитової</span>
+</div>
+</div>
+<div class="relative group rounded-xl overflow-hidden h-64 md:h-80 col-span-1">
+<img alt="Industrial socket installation" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Industrial style black electrical sockets on a concrete wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDIMCTq0kbN3HkJp05GTchQXBKUzwNIAwTjeyLj3Sdre1zokVxGf99zFv1SUYAc1dH9Lfw3PkltmurVX-uaJMzEp0hrIdKyitXahr532xYmtHovZHZWiJooUDVZKZ3WyPfQ5vurm5bTEOiJ7KBwK_1-b0sMVZUVL_HgDNjqv9YfbGzv6Togr6UONpY3nXgsPwsn08d5hRZtwtcFx7tUrfPoCa4FGGWHVoLCECZvH6owMfRadIF1YJKSXEgBQ6oKMOWDWqcinjQdhY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+<span class="text-white font-bold text-sm">Монтаж лофт розеток</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials -->
+<section class="py-20 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800" id="reviews">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<h2 class="text-3xl font-extrabold text-slate-900 dark:text-white text-center mb-16">Що кажуть клієнти</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Review 1 -->
+<div class="bg-background-light dark:bg-background-dark p-8 rounded-2xl relative">
+<div class="absolute -top-4 left-8 text-6xl text-primary/20 font-serif leading-none">“</div>
+<div class="flex items-center gap-1 text-amber-400 mb-4">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+</div>
+<p class="text-slate-600 dark:text-slate-300 mb-6 italic">
+                        Зникло світло в половині квартири о 9 вечора. Майстер приїхав через 40 хвилин, швидко знайшов проблему в розподільчій коробці і все полагодив. Дуже вдячна за оперативність!
+                    </p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-bold">О</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white text-sm">Олена К.</h4>
+<span class="text-xs text-slate-500">Київ, Оболонь</span>
+</div>
+</div>
+</div>
+<!-- Review 2 -->
+<div class="bg-background-light dark:bg-background-dark p-8 rounded-2xl relative">
+<div class="absolute -top-4 left-8 text-6xl text-primary/20 font-serif leading-none">“</div>
+<div class="flex items-center gap-1 text-amber-400 mb-4">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+</div>
+<p class="text-slate-600 dark:text-slate-300 mb-6 italic">
+                        Замовляв повну заміну проводки в хрущовці. Хлопці працювали акуратно, сміття за собою прибрали. Ціна відповідала попередньому кошторису. Рекомендую LionsElektro.
+                    </p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-bold">М</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white text-sm">Микола В.</h4>
+<span class="text-xs text-slate-500">Київ, Нивки</span>
+</div>
+</div>
+</div>
+<!-- Review 3 -->
+<div class="bg-background-light dark:bg-background-dark p-8 rounded-2xl relative">
+<div class="absolute -top-4 left-8 text-6xl text-primary/20 font-serif leading-none">“</div>
+<div class="flex items-center gap-1 text-amber-400 mb-4">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star_half</span>
+</div>
+<p class="text-slate-600 dark:text-slate-300 mb-6 italic">
+                        Встановлювали реле напруги та нові автомати. Майстер все пояснив, показав як користуватися. Роботою задоволений, виглядає все надійно.
+                    </p>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-bold">А</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white text-sm">Андрій П.</h4>
+<span class="text-xs text-slate-500">Київ, Дарниця</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Lead Form Section -->
+<section class="py-20 bg-background-light dark:bg-background-dark" id="contact">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="bg-white dark:bg-slate-900 rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+<!-- Form Side -->
+<div class="p-8 md:p-12 w-full md:w-3/5">
+<h2 class="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">Залишити заявку</h2>
+<p class="text-slate-600 dark:text-slate-400 mb-8">Заповніть форму і ми передзвонимо вам протягом 5 хвилин для консультації.</p>
+<form action="#" class="space-y-5" method="POST">
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1" for="name">Ваше ім'я</label>
+<input class="w-full px-4 py-3 rounded-lg border-slate-200 dark:border-slate-700 bg-background-light dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" id="name" name="name" placeholder="Іван" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1" for="phone">Номер телефону</label>
+<input class="w-full px-4 py-3 rounded-lg border-slate-200 dark:border-slate-700 bg-background-light dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" id="phone" name="phone" placeholder="+380 99 999 99 99" type="tel"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1" for="issue">Тип проблеми</label>
+<select class="w-full px-4 py-3 rounded-lg border-slate-200 dark:border-slate-700 bg-background-light dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" id="issue" name="issue">
+<option value="emergency">Аварійний виклик (терміново)</option>
+<option value="repair">Ремонт розетки/вимикача</option>
+<option value="installation">Монтаж проводки/щитка</option>
+<option value="consultation">Консультація</option>
+</select>
+</div>
+<button class="w-full py-4 px-6 rounded-lg bg-primary hover:bg-primary-dark text-white font-bold text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5" type="button">
+                            Викликати майстра
+                        </button>
+<p class="text-xs text-slate-500 text-center mt-4">Натискаючи кнопку, ви погоджуєтесь на обробку персональних даних.</p>
+</form>
+</div>
+<!-- Info Side -->
+<div class="bg-primary p-8 md:p-12 w-full md:w-2/5 text-white flex flex-col justify-between">
+<div>
+<h3 class="text-2xl font-bold mb-6">Контакти</h3>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-icons bg-white/20 p-2 rounded-lg">phone</span>
+<div>
+<p class="text-white/70 text-sm mb-1">Цілодобово</p>
+<p class="font-bold text-lg">+380 44 123 45 67</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-icons bg-white/20 p-2 rounded-lg">email</span>
+<div>
+<p class="text-white/70 text-sm mb-1">Email</p>
+<p class="font-bold">info@lionselektro.ua</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-icons bg-white/20 p-2 rounded-lg">map</span>
+<div>
+<p class="text-white/70 text-sm mb-1">Київська обл.</p>
+<p class="font-bold">Працюємо по всьому Києву та передмістю</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-white/20">
+<div class="rounded-lg overflow-hidden h-32 w-full bg-blue-800 opacity-80 mix-blend-overlay" data-alt="Map view of Kyiv city area" data-location="Kyiv" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuChmW85lUnaD9ZQggza-ivnoQP9_q8zx28VfjA8Wr17zNAz1stVDebSjiJ1rfoA_Y1F7-KeeIJo8JgaRLG-vGtxs-nfd7qAwQnyu8fQIdRPiUhdzKVgjXbpjk1YFlPDrj7hLP913dgL3XfLYR1vWs0CSBMaJ4PlaIB_28EatxjfQiNMVQ763t31l5J8pEbMbDO5ig8zOnvZZlPcAB_CmpmA8EEuSbAfUapRGV1_bAEHN2KJNoadD57Q-GVBAQFVtqRD5fY5tzjYP4E'); background-size: cover; background-position: center;">
+<!-- Simulated Map placeholder -->
+<div class="w-full h-full flex items-center justify-center bg-primary/50 backdrop-blur-sm">
+<span class="flex items-center gap-2 font-medium"><span class="material-icons text-sm">place</span> Карта покриття</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-icons text-primary text-2xl">bolt</span>
+<span class="text-white font-bold text-xl">LionsElektro</span>
+</div>
+<p class="text-sm leading-relaxed">
+                        Ваш надійний партнер у вирішенні будь-яких проблем з електрикою. Якість, безпека та швидкість – наші пріоритети.
+                    </p>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Послуги</h4>
+<ul class="space-y-2 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Аварійний виклик</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Заміна проводки</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Встановлення щитків</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Монтаж освітлення</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Компанія</h4>
+<ul class="space-y-2 text-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Про нас</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Ціни</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Відгуки</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Гарантія</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Соціальні мережі</h4>
+<div class="flex space-x-4">
+<a class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<!-- Facebook icon simulation -->
+<span class="font-bold text-lg">f</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<!-- Instagram icon simulation -->
+<span class="font-bold text-lg">in</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<!-- Telegram icon simulation -->
+<span class="material-icons text-lg" style="font-size: 18px;">send</span>
+</a>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
+<p>© 2023 LionsElektro. Всі права захищені.</p>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<a class="hover:text-white transition-colors" href="#">Політика конфіденційності</a>
+<a class="hover:text-white transition-colors" href="#">Угода користувача</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
